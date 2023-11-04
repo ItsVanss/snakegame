@@ -42,7 +42,7 @@ def select_level():
                     selected = True
 
         screen.fill((0, 0, 0))
-        title_text = title_font.render("Snake Game", True, (255, 255, 255))
+        title_text = title_font.render("Uler Uleran", True, (255, 255, 255))
         title_rect = title_text.get_rect(center=(WIDTH // 2, HEIGHT // 4))
         screen.blit(title_text, title_rect)
 
@@ -69,7 +69,6 @@ def select_level():
         pygame.display.update()
 
     return level
-
 
 def start_game():
     x = WIDTH // 2
@@ -136,7 +135,9 @@ def game_over():
     screen.blit(text, text_rect)
     pygame.display.update()
 
-    while True:
+    new_game = None  
+
+    while new_game is None:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -146,10 +147,11 @@ def game_over():
                     pygame.quit()
                     quit()
                 elif event.key == pygame.K_n:
-                    start_game()
-                elif event.key == pygame.K_c:
-                    select_level()
-                    start_game()
-                return
+                    new_game = True  
+
+    if new_game: 
+        start_game()
+    else:
+        select_level()
 
 start_game()
