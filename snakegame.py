@@ -130,7 +130,7 @@ def start_game():
 
 def game_over():
     font = pygame.font.Font(None, 36)
-    text = font.render("Game Over!", True, (255, 0, 0))
+    text = font.render("Tolol!", True, (255, 0, 0))
     text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
     screen.blit(text, text_rect)
     pygame.display.update()
